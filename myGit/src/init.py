@@ -1,6 +1,6 @@
 import os
 
-def execute():
+def execute(args):
     if os.path.exists(".mygit"):
         print("Repository already initialized.")
         return
@@ -10,6 +10,9 @@ def execute():
 
     with open(".mygit/index", "w") as f:
         pass
-
+    
+    with open(".mygit/HEAD", "w") as f:
+        pass
+    
     print("Initialized empty MyGit repository in .mygit/")
 
