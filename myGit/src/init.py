@@ -8,7 +8,7 @@ def execute():
     os.makedirs(".mygit/objects",exist_ok=True)
     os.makedirs(".mygit/refs",exist_ok=True)
 
-    with open(".mygit/HEAD", "w") as f:
+    with open(".mygit/index", "w") as f:
         pass
 
     print("Initialized empty MyGit repository in .mygit/")
