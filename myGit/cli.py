@@ -1,5 +1,5 @@
 import argparse
-from src import init,add,branch,checkout,status,commit 
+from src import init,add,branch,checkout,status,commit,log 
 
 def build_parser():
     parser=argparse.ArgumentParser(prog="myGit",description="Custon Git Implementation")
@@ -27,6 +27,9 @@ def build_parser():
     branch_parser = subparsers.add_parser("branch", help="List or create branches")
     branch_parser.add_argument("name", nargs="?", help="New branch name (optional)")
     branch_parser.set_defaults(func=branch.execute)
+
+    log_parser = subparsers.add_parser("log", help="Show commit history")
+    log_parser.set_defaults(func=log.execute)
 
     return parser
 
