@@ -18,6 +18,16 @@ def execute(args):
     commit_content = f"Commit Message: {commit_message}\n\n{staged_files}"
     commit_hash = hashlib.sha1(commit_content.encode()).hexdigest()
 
+    head_path = ".mygit/HEAD"
+    parent_hash=None
+
+    if os.path.exists(head_path):
+        with open(head_path, "r") as f:
+            parent_hash = f.read().strip()
+    
+    if parent_hash:
+        commit_content = f"Parent: {parent_hash}\n{commit_content}"
+
     with open(f".mygit/objects/{commit_hash}","w") as f:
         f.write(commit_content)
 
